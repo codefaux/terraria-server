@@ -1,1 +1,0 @@
-containers/vanilla/latest_/run-vanilla.sh

@@ -1,1 +1,0 @@
-containers/vanilla/latest_/Dockerfile
