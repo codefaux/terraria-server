@@ -1,0 +1,6 @@
+#!/bin/bash
+REPO="daninfuchs/terraria-server"
+
+find ../containers/ -mindepth 2 -type d | sed -E "s|^../containers/(.*)/(.*)\$|${REPO}:\1-\2|g" | xargs -n 1 echo docker push
+echo docker image tag ${REPO}:vanilla-1.4.0.5 ${REPO}:latest
+echo docker push ${REPO}:latest
