@@ -8,7 +8,7 @@ set -euo pipefail
 #####
 
 # Settings
-CI_REGISTRY_IMAGE="daninfuchs/terraria"
+CI_REGISTRY_IMAGE="daninfuchs/terraria-server"
 LATEST_FOLDER="vanilla"
 
 # Colorize me baby

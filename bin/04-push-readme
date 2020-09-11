@@ -20,13 +20,13 @@ except ImportError:
 #####
 
 # Repository name
-repo = "terraria"
+repo = "terraria-server"
 
 # Repository Slug
-slug = "daninfuchs/terraria"
+slug = "daninfuchs/terraria-server"
 
 # Docker Hub Description, Limit 100 Characters
-short_description = "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."
+short_description = "Docker images to run a Tshock/Vanilla Terraria Server with working password."
 
 
 # Change to script dir
