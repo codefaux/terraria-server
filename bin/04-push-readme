@@ -23,7 +23,7 @@ except ImportError:
 repo = "terraria"
 
 # Repository Slug
-slug = "beardedio/terraria"
+slug = "daninfuchs/terraria"
 
 # Docker Hub Description, Limit 100 Characters
 short_description = "Docker images to run a Terraria Server. Images with TShock Server or Vanilla Server are available."

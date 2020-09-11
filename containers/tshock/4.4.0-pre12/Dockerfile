@@ -30,7 +30,7 @@ COPY run-tshock.sh /tshock/run.sh
 # Commit Hash Metadata
 ARG VCS_REF
 LABEL org.label-schema.vcs-ref=$VCS_REF \
-    org.label-schema.vcs-url="https://github.com/beardedio/terraria"
+    org.label-schema.vcs-url="https://github.com/daninfuchs/terraria"
 
 # Allow for external data
 VOLUME ["/config", "/tshock/ServerPlugins"]
