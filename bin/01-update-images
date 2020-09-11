@@ -79,9 +79,15 @@ for item in data:
 
 # Delete existing version folders
 print('Deleting versions from: '+version_folder)
-paths = glob.glob(version_folder+'/*/')
+paths = glob.glob(version_folder+'/*')
 for path in paths:
-    shutil.rmtree(path, False)
+    print('Removing '+path)
+    if os.path.islink(path) == True:
+      os.unlink(path)
+    elif os.path.isdir(path):
+      shutil.rmtree(path, False)
+    elif os.path.isfile(path):
+      os.remove(path)
 
 # Create new version folders
 print('Creating new versions for: '+version_folder)
@@ -124,6 +130,10 @@ with open(version_folder+'/latest','w') as f:
     print("Updating latest to: "+latest)
     f.write(latest)
 
+
+# Update latest_ dir (Someone check this; I don't do Python -- Danin)
+os.symlink(version_folder+'/'+latest, version_folder+'/latest_')
+print("Updating latest_ to: "+version_folder+'/latest_')
 
 
 print("\n")
@@ -171,9 +181,15 @@ while count < limit:
 
 # Delete existing version folders
 print('Deleting versions from: '+version_folder)
-paths = glob.glob(version_folder+'/*/')
+paths = glob.glob(version_folder+'/*')
 for path in paths:
-    shutil.rmtree(path, False)
+    print('Removing '+path)
+    if os.path.islink(path) == True:
+      os.unlink(path)
+    elif os.path.isdir(path):
+      shutil.rmtree(path, False)
+    elif os.path.isfile(path):
+      os.remove(path)
 
 # Create new version folders
 print('Creating new versions for: '+version_folder)
@@ -227,6 +243,9 @@ with open(version_folder+'/latest','w') as f:
     print("Updating latest to: "+latest)
     f.write(latest)
 
+# Update latest_ dir (Someone check this; I don't do Python -- Danin)
+os.symlink(version_folder+'/'+latest, version_folder+'/latest_')
+print("Updating latest_ to: "+version_folder+'/latest_')
 
 
 print("\n")
@@ -248,9 +267,15 @@ version_list.sort(reverse=True)
 
 # Delete existing version folders
 print('Deleting versions from: '+version_folder)
-paths = glob.glob(version_folder+'/*/')
+paths = glob.glob(version_folder+'/*')
 for path in paths:
-    shutil.rmtree(path, False)
+    print('Removing '+path)
+    if os.path.islink(path) == True:
+      os.unlink(path)
+    elif os.path.isdir(path):
+      shutil.rmtree(path, False)
+    elif os.path.isfile(path):
+      os.remove(path)
 
 # Create new version folders
 print('Creating new versions for: '+version_folder)
@@ -292,3 +317,8 @@ with open(version_folder+'/latest','w') as f:
 
     print("Updating latest to: "+latest)
     f.write(latest)
+
+# Update latest_ dir (Someone check this; I don't do Python -- Danin)
+os.symlink(version_folder+'/'+latest, version_folder+'/latest_')
+print("Updating latest_ to: "+version_folder+'/latest_')
+
