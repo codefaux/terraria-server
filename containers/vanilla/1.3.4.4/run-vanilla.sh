@@ -18,6 +18,11 @@ if [ ! -s "/root/.local/share/Terraria/Worlds" ]; then
     ln -sT /config /root/.local/share/Terraria/Worlds
 fi
 
+# Add password to command line if provided
+if [ "${password:-null}" != null ]; then
+    CMD="$CMD -password ${password}"
+fi
+
 # Pass in world if set
 if [ "${world:-null}" != null ]; then
     if [ ! -f "/config/$world" ]; then
