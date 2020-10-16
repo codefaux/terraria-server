@@ -11,6 +11,7 @@ docker create --rm -it \
   --name=terraria \
   -v <path to data>:/config \
   -e world=<world_file_name> \
+  -e password=<plaintext_password> \
   -p 7777:7777 \
   daninfuchs/terraria-server
 ```
@@ -53,6 +54,7 @@ sudo docker run --rm -dit \
   --name=terraria \
   -v $HOME/terraria/config:/config \
   -e world=<world_file_name> \
+  -e password=<plaintext_password> \
   -p 7777:7777 \
   daninfuchs/terraria-server
 ```
@@ -77,6 +79,7 @@ services:
     restart: unless-stopped
     environment:
       - world=<world_file_name>
+      - password=<plaintext_password>
     volumes:
       - $HOME/terraria/config:/config
     tty: true
