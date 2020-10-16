@@ -46,7 +46,7 @@ repodir = os.getcwd()
 #  Parse User and Pass from cli
 #####
 if len(sys.argv) < 3:
-    print("Please pass a user name and password to update docker hub, ie `"+sys.argv[0]+" myusername mypassword`")
+    print("Please pass a user name and password to update docker hub, ie `"+sys.argv[0]+" username $(read -p'Password: ' -s; echo $REPLY; unset REPLY)`")
     sys.exit()
 
 if sys.argv[1]:
