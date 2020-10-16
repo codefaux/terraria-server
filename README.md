@@ -15,6 +15,7 @@ docker create --rm -it \
   --name=terraria \
   -v <path to data>:/config \
   -e world=<world_file_name> \
+  -e password=<plaintext_password> \
   -p 7777:7777 \
   daninfuchs/terraria-server
 ```
@@ -28,16 +29,16 @@ Docker Images are avaiable on [Docker Hub](https://hub.docker.com/r/daninfuchs/t
 * vanilla-1.3.4.4 [(containers/vanilla/1.3.4.4/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/vanilla/1.3.4.4/Dockerfile)
 * vanilla-1.3.3.3 [(containers/vanilla/1.3.3.3/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/vanilla/1.3.3.3/Dockerfile)
 * vanilla-1.3.2.1 [(containers/vanilla/1.3.2.1/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/vanilla/1.3.2.1/Dockerfile)
-* tshock-4.4.0-pre12, tshock-latest [(containers/tshock/4.4.0-pre12/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.4.0-pre12/Dockerfile)
+* tshock-4.40-pre13, tshock-latest [(containers/tshock/4.40-pre13/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.40-pre13/Dockerfile)
 * tshock-4.3.26 [(containers/tshock/4.3.26/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.3.26/Dockerfile)
 * tshock-4.3.25 [(containers/tshock/4.3.25/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.3.25/Dockerfile)
 * tshock-4.3.24 [(containers/tshock/4.3.24/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.3.24/Dockerfile)
 * tshock-4.3.23 [(containers/tshock/4.3.23/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock/4.3.23/Dockerfile)
-* tshock-dev-1590, tshock-dev-latest [(containers/tshock-dev/1590/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1590/Dockerfile)
-* tshock-dev-1587 [(containers/tshock-dev/1587/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1587/Dockerfile)
-* tshock-dev-1586 [(containers/tshock-dev/1586/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1586/Dockerfile)
-* tshock-dev-1585 [(containers/tshock-dev/1585/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1585/Dockerfile)
-* tshock-dev-1584 [(containers/tshock-dev/1584/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1584/Dockerfile)
+* tshock-dev-1595, tshock-dev-latest [(containers/tshock-dev/1595/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1595/Dockerfile)
+* tshock-dev-1594 [(containers/tshock-dev/1594/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1594/Dockerfile)
+* tshock-dev-1593 [(containers/tshock-dev/1593/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1593/Dockerfile)
+* tshock-dev-1592 [(containers/tshock-dev/1592/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1592/Dockerfile)
+* tshock-dev-1591 [(containers/tshock-dev/1591/Dockerfile)](https://github.com/daninfuchs/terraria-server/blob/master/containers/tshock-dev/1591/Dockerfile)
 
 ### Quick reference
 - Where to get help:\
@@ -57,7 +58,7 @@ A Terraria server provides a platform for players to connect over the internet o
 ### Generating a new world
 To run with out user intervention Terraria Server needs to be configure to use an already generated world. This means you can use one that you have already generated or you can generate one via docker by running this command:
 ```
-sudo docker run --rm -it -p 7777:7777 \
+sudo docker run --rm -it \
     -v $HOME/terraria/config:/config \
     --name=terraria \
     daninfuchs/terraria-server
@@ -72,6 +73,7 @@ sudo docker run --rm -dit \
   --name=terraria \
   -v $HOME/terraria/config:/config \
   -e world=<world_file_name> \
+  -e password=<plaintext_password> \
   -p 7777:7777 \
   daninfuchs/terraria-server
 ```
@@ -96,6 +98,7 @@ services:
     restart: unless-stopped
     environment:
       - world=<world_file_name>
+      - password=<plaintext_password>
     volumes:
       - $HOME/terraria/config:/config
     tty: true
