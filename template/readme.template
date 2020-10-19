@@ -42,7 +42,7 @@ To run with out user intervention Terraria Server needs to be configure to use a
 sudo docker run --rm -it \
     -v $HOME/terraria/config:/config \
     --name=terraria \
-    daninfuchs/terraria-server
+    daninfuchs/terraria-server:vanilla-latest
 ```
 You can then follow the prompts to create a new world.
 
@@ -56,7 +56,7 @@ sudo docker run --rm -dit \
   -e world=<world_file_name> \
   -e password=<plaintext_password> \
   -p 7777:7777 \
-  daninfuchs/terraria-server
+  daninfuchs/terraria-server:vanilla-latest
 ```
 
 If you get an error from docker saying the container name already exists, it means you need to remove your old docker container process.
